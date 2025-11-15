@@ -47,32 +47,32 @@ def create_coverage_map(optimizer):
     center_lat = (lat_min + lat_max) / 2
     center_lon = (lon_min + lon_max) / 2
     
-    # Create folium map with satellite tiles
+    # Create folium map with no default tiles
     m = folium.Map(
         location=[center_lat, center_lon],
         zoom_start=15,
-        tiles=None  # We'll add custom tiles
+        tiles=None
     )
-    
-    # Add satellite tile layer as default
-    satellite_layer = folium.TileLayer(
-        tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-        attr='Esri WorldImagery',
-        name='Satellite',
-        overlay=False,
-        control=True
-    )
-    satellite_layer.add_to(m)
-    
-    # Add OpenStreetMap as secondary option
+        
+    # Add street map 
     folium.TileLayer(
         tiles='OpenStreetMap',
         name='Street Map',
         overlay=False,
         control=True
     ).add_to(m)
+
+    # Add satellite layer 
+    folium.TileLayer(
+        tiles='https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+        attr='Esri WorldImagery',
+        name='Satellite',
+        overlay=False,
+        control=True
+    ).add_to(m)
     
-    # Add coverage area rectangle (more transparent, non-clickable)
+   
+    # Add the rest of your map elements...
     folium.Rectangle(
         bounds=[[lat_min, lon_min], [lat_max, lon_max]],
         color='cyan',
@@ -80,21 +80,21 @@ def create_coverage_map(optimizer):
         fill=True,
         fillColor='lightblue',
         fillOpacity=0.15,
-        popup=None,  # Remove popup to prevent interference
+        popup=None,
         tooltip='Terrain Analysis Coverage Area'
     ).add_to(m)
     
-    # Add center marker for reference
-    folium.Marker(
-        [center_lat, center_lon],
-        popup='Coverage Center',
-        tooltip='Coverage area center - click anywhere in blue area to analyze',
-        icon=folium.Icon(color='green', icon='info-sign')
-    ).add_to(m)
+    # # Add center marker for reference
+    # folium.Marker(
+    #     [center_lat, center_lon],
+    #     popup='Coverage Center',
+    #     tooltip='Coverage area center - click anywhere in blue area to analyze',
+    #     icon=folium.Icon(color='green', icon='info-sign')
+    # ).add_to(m)
     
     # Add layer control
     folium.LayerControl().add_to(m)
-    
+        
     # Add terrain visualization (try contours, fallback to heatmap)
     contour_success = False
     try:
