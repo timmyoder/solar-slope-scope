@@ -1,48 +1,26 @@
+# PV Terrain-Aware Optimizer - Streamlit App Dependencies
+
 # Core scientific computing
 numpy
 pandas
 scipy
 
-# Solar modeling (main package) 
+# Solar modeling
 pvlib
 
 # Data visualization
 matplotlib
-seaborn
-
-# Web requests for topography data
-requests
-
-# HDF5 support for pvlib data files
-h5py
-
-# Timezone handling
-pytz
-
-# For working with downloaded elevation data (REQUIRED for local analysis)
-# rasterio
-# pyproj
-# libnetcdf 
-# netcdf4
-
-# For high-resolution terrain analysis
-scipy  # needed for smoothing in constrained area analysis
-
-# For advanced GIS operations (optional)
-geopandas
-folium
-fiona
-
-
-# Optional performance enhancements
-numba
-
-# For creating interactive plots
 plotly
 
-# for trimming usgs topo data
-gdal
+# Geospatial operations
+geopandas
+folium
+pyproj
 
-# web app dependencies
-streamlit 
+# Web app framework
+streamlit
 streamlit-folium
+
+# Data processing
+h5py
+pytz

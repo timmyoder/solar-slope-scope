@@ -583,7 +583,7 @@ def main():
                 icon=folium.Icon(color='red', icon='star')
             ).add_to(m)
         
-        map_data = st_folium(m, width=800, height=600, returned_objects=["last_clicked"])
+        map_data = st_folium(m, width=800, height=600, returned_objects=["last_clicked"], key="main_map")
     
     with controls_col:
         # Handle clicked coordinates
