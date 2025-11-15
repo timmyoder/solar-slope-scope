@@ -42,3 +42,7 @@ plotly
 
 # for trimming usgs topo data
 gdal
+
+# web app dependencies
+streamlit 
+streamlit-folium

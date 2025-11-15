@@ -2,7 +2,7 @@ pvlib-src/
 data/
 junk-files
 .github/
-
+plots/
 
 
 # pycharm stuff
