@@ -4,6 +4,8 @@ junk-files
 .github/
 plots/
 
+!data/terrain_elevation_points.geojson
+
 
 # pycharm stuff
 .idea/
