@@ -18,7 +18,7 @@ This tool analyzes how ground slope affects optimal solar panel orientation. Ins
 
 ## 🌍 Live Demo
 
-*[Deploy to Streamlit Cloud and add link here]*
+**[Deployed Streamlit Community](https://solar-slope-scope-fokgwoteq5dyzlrubrqvxp.streamlit.app/)**
 
 ## 📍 Coverage Area
 
